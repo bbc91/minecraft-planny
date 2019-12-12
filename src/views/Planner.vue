@@ -30,10 +30,14 @@
         ></div>
       </div>
     </div>
-    <div id="grid">
+    <div
+      id="grid"
+      @mousedown.left="holdingLeftMouseButton = true"
+      @mouseup="holdingLeftMouseButton = false"
+    >
       <div class="row" v-for="(row, index) in grid" :key="index">
         <div
-          @click="changeBlockType(block)"
+          @mouseenter="changeBlockType(block)"
           class="block"
           :class="[block.type]"
           v-for="(block, index2) in row"
@@ -49,6 +53,7 @@ export default {
   name: "planner",
   data() {
     return {
+      holdingLeftMouseButton: false,
       pickedBlockType: "grass",
       x: 12,
       y: 12
@@ -67,7 +72,9 @@ export default {
       this.$store.dispatch("project/createGrid", { x: this.x, y: this.y });
     },
     changeBlockType(block) {
-      block.type = this.pickedBlockType;
+      if (this.holdingLeftMouseButton) {
+        block.type = this.pickedBlockType;
+      }
     }
   },
   created() {
