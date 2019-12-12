@@ -1,0 +1,23 @@
+/* grass */
+
+.grass {
+    background-image: url(mini_blocks.png);
+    background-position: -192px -832px;
+}
+
+.bigGrass {
+    background-image: url(big_blocks.png);
+    background-position: -640px -960px;
+}
+
+/* cobble stone */
+
+.cobbleStone {
+    background-image: url(mini_blocks.png);
+    background-position: -32px -832px;
+}
+
+.bigCobbleStone {
+    background-image: url(big_blocks.png);
+    background-position: -960px -3328px;
+}

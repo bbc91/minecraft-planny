@@ -9,8 +9,8 @@ body {
 }
 
 .block {
-    width: 25px;
-    height: 25px;
+    width: 16px;
+    height: 16px;
     background: #fff;
     float: left;
     border: 1px solid #000;
@@ -32,4 +32,30 @@ body {
 .gridSizeButton {
     padding: 5px;
     width: 50px;
+}
+
+.blockButton {
+    width: 32px;
+    height: 32px;
+    float: left;
+    margin-left: 15px;
+    cursor: pointer;
+    border: 1px solid #fff;
+}
+
+#blockPicker {
+    float: left;
+}
+
+#sizePicker {
+    float: left;
+}
+
+#settings {
+    width: 100%;
+    float: left;
+}
+
+.selected {
+    border: 1px solid black;
 }

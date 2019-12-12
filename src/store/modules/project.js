@@ -15,7 +15,7 @@ const actions = {
             grid[i] = [];
             for (var j = 0; j < y; j++) {
                 grid[i][j] = {
-                    type: 'empty'
+                    type: 'grass'
                 };
             }
         }

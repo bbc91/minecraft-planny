@@ -1,16 +1,44 @@
 <template>
   <div class="planner">
     <div id="settings">
-      <div>
+      <div id="sizePicker">
         <label>Grid size: </label>
-        <input class="gridSizeInput" type="number" v-model="x" />
-        <input class="gridSizeInput" type="number" v-model="y" />
+        <input
+          @keypress.enter="setGridSize()"
+          class="gridSizeInput"
+          type="number"
+          v-model="x"
+        />
+        <input
+          @keypress.enter="setGridSize()"
+          class="gridSizeInput"
+          type="number"
+          v-model="y"
+        />
         <button class="gridSizeButton" @click="setGridSize()">Set</button>
+      </div>
+      <div id="blockPicker">
+        <div
+          class="blockButton bigGrass"
+          :class="{ selected: pickedBlockType === 'grass' }"
+          @click="pickedBlockType = 'grass'"
+        ></div>
+        <div
+          class="blockButton bigCobbleStone"
+          :class="{ selected: pickedBlockType === 'cobbleStone' }"
+          @click="pickedBlockType = 'cobbleStone'"
+        ></div>
       </div>
     </div>
     <div id="grid">
       <div class="row" v-for="(row, index) in grid" :key="index">
-        <div class="block" v-for="(block, index2) in row" :key="index2"></div>
+        <div
+          @click="changeBlockType(block)"
+          class="block"
+          :class="[block.type]"
+          v-for="(block, index2) in row"
+          :key="index2"
+        ></div>
       </div>
     </div>
   </div>
@@ -21,6 +49,7 @@ export default {
   name: "planner",
   data() {
     return {
+      pickedBlockType: "grass",
       x: 12,
       y: 12
     };
@@ -36,6 +65,9 @@ export default {
   methods: {
     setGridSize() {
       this.$store.dispatch("project/createGrid", { x: this.x, y: this.y });
+    },
+    changeBlockType(block) {
+      block.type = this.pickedBlockType;
     }
   },
   created() {
@@ -43,3 +75,6 @@ export default {
   }
 };
 </script>
+<style>
+@import "../assets/blocks.css";
+</style>
