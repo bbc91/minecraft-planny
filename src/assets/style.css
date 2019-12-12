@@ -1,0 +1,23 @@
+body {
+    background: #fff;
+}
+
+#grid {
+    border-left: 1px solid #000;
+    border-top: 1px solid #000;
+    float: left;
+}
+
+.block {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    float: left;
+    border: 1px solid #000;
+    border-width: 0 1px 1px 0;
+}
+
+.row {
+    float: left;
+    clear: both;
+}
