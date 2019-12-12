@@ -1,5 +1,8 @@
 # minecraft-planny
 
+## DEMO!
+See here the [Demo](http://minecraft-planny.surge.sh/)
+
 ## Project setup
 ```
 npm install
