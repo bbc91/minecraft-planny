@@ -37,7 +37,8 @@
     >
       <div class="row" v-for="(row, index) in grid" :key="index">
         <div
-          @mouseenter="changeBlockType(block)"
+          @mousedown.left="changeBlockType(block)"
+          @mouseenter="changeBlockTypeByDragging(block)"
           class="block"
           :class="[block.type]"
           v-for="(block, index2) in row"
@@ -71,10 +72,13 @@ export default {
     setGridSize() {
       this.$store.dispatch("project/createGrid", { x: this.x, y: this.y });
     },
-    changeBlockType(block) {
+    changeBlockTypeByDragging(block) {
       if (this.holdingLeftMouseButton) {
         block.type = this.pickedBlockType;
       }
+    },
+    changeBlockType(block) {
+      block.type = this.pickedBlockType;
     }
   },
   created() {
