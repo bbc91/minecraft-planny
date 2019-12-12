@@ -9,8 +9,8 @@ body {
 }
 
 .block {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background: #fff;
     float: left;
     border: 1px solid #000;
@@ -20,4 +20,16 @@ body {
 .row {
     float: left;
     clear: both;
+}
+
+.gridSizeInput {
+    margin-right: 15px;
+    width: 50px;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.gridSizeButton {
+    padding: 5px;
+    width: 50px;
 }
