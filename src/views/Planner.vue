@@ -7,12 +7,14 @@
           @keypress.enter="setGridSize()"
           class="gridSizeInput"
           type="number"
+          max="64"
           v-model="x"
         />
         <input
           @keypress.enter="setGridSize()"
           class="gridSizeInput"
           type="number"
+          max="64"
           v-model="y"
         />
         <button class="gridSizeButton" @click="setGridSize()">Set</button>
@@ -30,20 +32,22 @@
         ></div>
       </div>
     </div>
-    <div
-      id="grid"
-      @mousedown.left="holdingLeftMouseButton = true"
-      @mouseup="holdingLeftMouseButton = false"
-    >
-      <div class="row" v-for="(row, index) in grid" :key="index">
-        <div
-          @mousedown.left="changeBlockType(block)"
-          @mouseenter="changeBlockTypeByDragging(block)"
-          class="block"
-          :class="[block.type]"
-          v-for="(block, index2) in row"
-          :key="index2"
-        ></div>
+    <div id="gridHolder">
+      <div
+        id="grid"
+        @mousedown.left="holdingLeftMouseButton = true"
+        @mouseup="holdingLeftMouseButton = false"
+      >
+        <div class="row" v-for="(row, index) in grid" :key="index">
+          <div
+            @mousedown.left="changeBlockType(block)"
+            @mouseenter="changeBlockTypeByDragging(block)"
+            class="block"
+            :class="[block.type]"
+            v-for="(block, index2) in row"
+            :key="index2"
+          ></div>
+        </div>
       </div>
     </div>
   </div>
@@ -66,6 +70,15 @@ export default {
     },
     grid() {
       return this.$store.state.project.grid;
+    }
+  },
+  watch: {
+    // whenever question changes, this function will run
+    y: function(newY) {
+      this.y = newY > 64 ? 64 : newY;
+    },
+    x: function(newX) {
+      this.x = newX > 64 ? 64 : newX;
     }
   },
   methods: {

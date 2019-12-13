@@ -1,11 +1,16 @@
+@font-face {
+    font-family: Minecraft;
+    src: url(./Minecraft.ttf);
+}
+
 body {
-    background: #fff;
+    background: #e6eff4;
+    font-family: Minecraft, sans-serif;
 }
 
 #grid {
     border-left: 1px solid #000;
     border-top: 1px solid #000;
-    float: left;
 }
 
 .block {
@@ -58,4 +63,13 @@ body {
 
 .selected {
     border: 1px solid black;
+}
+
+#gridHolder {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    margin-top: 30px;
+    float: left;
 }
