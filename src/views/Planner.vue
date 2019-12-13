@@ -56,8 +56,8 @@ export default {
     return {
       holdingLeftMouseButton: false,
       pickedBlockType: "grass",
-      x: 12,
-      y: 12
+      x: 32,
+      y: 32
     };
   },
   computed: {
