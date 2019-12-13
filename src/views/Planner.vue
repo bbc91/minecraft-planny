@@ -21,15 +21,19 @@
       </div>
       <div id="blockPicker">
         <div
-          class="blockButton bigGrass"
+          class="blockButton bigGrass tooltip"
           :class="{ selected: pickedBlockType === 'grass' }"
           @click="pickedBlockType = 'grass'"
-        ></div>
+        >
+          <span class="tooltiptext">Grass</span>
+        </div>
         <div
-          class="blockButton bigCobbleStone"
+          class="blockButton bigCobbleStone tooltip"
           :class="{ selected: pickedBlockType === 'cobbleStone' }"
           @click="pickedBlockType = 'cobbleStone'"
-        ></div>
+        >
+          <span class="tooltiptext">Cobblestone</span>
+        </div>
       </div>
     </div>
     <div id="gridHolder">
